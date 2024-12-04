@@ -7,10 +7,10 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link rel="icon" type="image/x-icon"
         href="https://raw.githubusercontent.com/mapbox/assembly/publisher-staging/src/svgs/mapbox.svg">
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css' rel='stylesheet' />
-    <script src="https://cdn.jsdelivr.net/npm/mapbox-gl-globe-minimap@1.2.0/dist/bundle.js"></script>
-    <script src="https://unpkg.com/scrollama"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js'></script> <!--MB-->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css' rel='stylesheet' /> <!--MB-->
+    <script src="https://cdn.jsdelivr.net/npm/mapbox-gl-globe-minimap@1.2.0/dist/bundle.js"></script><!--MP-->
+    <script src="https://unpkg.com/scrollama"></script><!--Scrollama-->
     <style>
         body {
             margin: 0;
@@ -139,8 +139,12 @@
 <body>
 
     <div id="map"></div>
-    <div id="story"></div>
-
+    <div id="story">
+        <h1 id="story-title"></h1>
+        <img id="story-image" src="" alt="Story Image">
+        <p id="story-description"></p>
+        <audio id="story-audio" controls></audio>
+    </div>
     <script src="./config.js"></script>
     <script>
         var initLoad = true;
@@ -298,7 +302,7 @@
                     'type': 'raster-dem',
                     'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
                     'tileSize': 512,
-                    'maxzoom': 14
+                    'maxzoom': 15
                 });
                 // add the DEM source as a terrain layer with exaggerated height
                 map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
